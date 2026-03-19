@@ -78,36 +78,37 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
-      <div
-        className={`fixed top-[72px] left-0 right-0 bottom-0 bg-navy z-50 flex flex-col items-center justify-center overflow-y-auto px-6 py-10 transition-transform duration-300 md:hidden ${
-          open ? 'translate-x-0' : '-translate-x-full'
-        }`}
-        aria-hidden={!open}
-      >
-        <ul className="flex flex-col gap-8 text-2xl list-none m-0 p-0 text-center">
-          {navLinks.map(([href, label]) => (
-            <li key={href}>
-              <Link
-                href={href}
-                onClick={() => setOpen(false)}
-                aria-current={pathname === href ? 'page' : undefined}
-                className={
-                  pathname === href
-                    ? 'text-teal font-semibold'
-                    : 'text-white hover:text-teal transition-colors duration-200'
-                }
+      {/* Mobile menu — inline expand */}
+      {open && (
+        <div className="md:hidden bg-navy border-t border-white/10" aria-label="Mobile navigation">
+          <ul className="flex flex-col list-none m-0 p-0">
+            {navLinks.map(([href, label]) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  aria-current={pathname === href ? 'page' : undefined}
+                  className={`flex items-center px-6 py-5 text-xl border-b border-white/10 min-h-[64px] transition-colors duration-200 ${
+                    pathname === href
+                      ? 'text-teal font-semibold'
+                      : 'text-white hover:text-teal hover:bg-white/5'
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a
+                href="tel:0217828927"
+                className="flex items-center px-6 py-5 text-xl text-gray-300 hover:text-white hover:bg-white/5 transition-colors duration-200 min-h-[64px]"
               >
-                {label}
-              </Link>
+                021-782 8927
+              </a>
             </li>
-          ))}
-        </ul>
-
-        <a href="tel:0217828927" className="mt-10 text-gray-300 text-lg min-h-[44px] flex items-center">
-          021-782 8927
-        </a>
-      </div>
+          </ul>
+        </div>
+      )}
     </header>
   )
 }
