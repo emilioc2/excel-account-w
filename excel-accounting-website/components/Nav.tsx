@@ -80,21 +80,11 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 bg-navy z-40 flex flex-col items-center justify-start overflow-y-auto px-6 pt-24 pb-16 transition-transform duration-300 md:hidden ${
+        className={`fixed top-[72px] left-0 right-0 bottom-0 bg-navy z-50 flex flex-col items-center justify-center overflow-y-auto px-6 py-10 transition-transform duration-300 md:hidden ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-hidden={!open}
       >
-        <button
-          aria-label="Close navigation"
-          onClick={() => setOpen(false)}
-          className="absolute top-4 right-4 text-white min-h-[44px] min-w-[44px] flex items-center justify-center"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
         <ul className="flex flex-col gap-8 text-2xl list-none m-0 p-0 text-center">
           {navLinks.map(([href, label]) => (
             <li key={href}>
