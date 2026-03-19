@@ -23,7 +23,7 @@ describe('Property 18: WhatsApp button is present on every page and links to the
           const link = screen.getByRole('link', { name: /chat with us on whatsapp/i })
 
           expect(link).toBeInTheDocument()
-          expect(link).toHaveAttribute('href', 'https://wa.me/27217828927')
+          expect(link).toHaveAttribute('href', 'https://wa.me/27825235838')
           expect(link).toHaveAttribute('target', '_blank')
           expect(link).toHaveAttribute('aria-label', 'Chat with us on WhatsApp')
 
