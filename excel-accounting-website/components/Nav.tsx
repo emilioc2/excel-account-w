@@ -80,7 +80,7 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 bg-navy z-40 flex flex-col items-center justify-center overflow-y-auto px-6 py-20 transition-transform duration-300 md:hidden ${
+        className={`fixed inset-0 bg-navy z-40 flex flex-col items-center justify-start overflow-y-auto px-6 pt-24 pb-16 transition-transform duration-300 md:hidden ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-hidden={!open}
