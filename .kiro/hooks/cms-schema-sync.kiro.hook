@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "CMS Schema Sync",
+  "description": "When a new component or section file is created, prompts the agent to update the Sanity schema and regenerate the typed GROQ helpers in lib/sanity.ts",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "components/*.tsx",
+      "app/**/*.tsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A new section or component file was just created. Check if it introduces any new content types or fields that need to be reflected in the Sanity CMS schema (sanity/schema/). If so: 1) Add or update the relevant schema file(s) in sanity/schema/, 2) Update the TypeScript interfaces and typed GROQ fetch helpers in lib/sanity.ts to match, 3) Ensure sanity.config.ts includes any new schema types. Keep everything consistent with the existing schema patterns."
+  }
+}

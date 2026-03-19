@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "name": "Refactor Hook",
+  "description": "Refactor Code",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Optimize component structure\nReduce duplication\nCreate shared UI components\nImprove naming\nEnsure full TypeScript safety"
+  }
+}
