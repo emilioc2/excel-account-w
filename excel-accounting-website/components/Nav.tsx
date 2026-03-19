@@ -103,7 +103,7 @@ export default function Nav() {
                 href="tel:0217828927"
                 className="flex items-center px-6 py-5 text-xl text-gray-300 hover:text-white hover:bg-white/5 transition-colors duration-200 min-h-[64px]"
               >
-                021-782 8927
+                Call us
               </a>
             </li>
           </ul>
