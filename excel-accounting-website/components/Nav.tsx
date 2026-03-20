@@ -16,7 +16,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-navy/70 backdrop-blur-md border-b border-white/10 shadow-md">
+    <header className="sticky top-0 z-50 bg-navy backdrop-blur-md border-b border-white/10 shadow-md">
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg tracking-tight">
