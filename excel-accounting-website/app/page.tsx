@@ -114,7 +114,7 @@ export default async function HomePage(): Promise<React.ReactElement> {
 
       {/* Featured Service Cards */}
       {featuredServices.length > 0 && (
-        <section className="py-20 px-6 bg-gray-50">
+        <section className="py-20 px-6 bg-slate-50">
           <div className="container mx-auto">
             <p className="section-label mb-3 text-center">What We Do</p>
             <h2 className="text-3xl font-bold text-navy mb-12 text-center">Our Core Services</h2>
@@ -147,13 +147,13 @@ export default async function HomePage(): Promise<React.ReactElement> {
       </section>
 
       {/* Full Services List */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="container mx-auto">
           <p className="section-label mb-3 text-center">Everything We Offer</p>
           <h2 className="text-3xl font-bold text-navy mb-12 text-center">Our Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {FULL_SERVICES.map((svc) => (
-              <div key={svc.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3">
+              <div key={svc.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
                 <div className="text-3xl" aria-hidden="true">{svc.icon}</div>
                 <h3 className="font-semibold text-navy text-lg">{svc.heading}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{svc.description}</p>
@@ -163,7 +163,7 @@ export default async function HomePage(): Promise<React.ReactElement> {
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-teal hover:bg-teal-dark text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px]"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-teal to-teal-dark hover:from-teal-dark hover:to-teal text-white font-semibold px-8 rounded transition-all duration-200 min-h-[44px] shadow-md hover:shadow-lg"
             >
               Contact Us
             </Link>

@@ -1,40 +1,96 @@
 import Link from 'next/link'
 
+const SERVICES_PREVIEW = [
+  { icon: '📊', category: 'Accounting & Tax', label: 'Financial Statements & Returns' },
+  { icon: '⚖️', category: 'Legal Services', label: 'Wills, Trusts & Estates' },
+  { icon: '📁', category: 'Secretarial Services', label: 'Company Registrations' },
+  { icon: '💼', category: 'Payroll', label: 'PAYE & Salary Processing' },
+]
+
 export default function Hero(): React.ReactElement {
   return (
-    <section className="bg-navy text-white py-24 md:py-32 px-6">
-      <div className="container mx-auto max-w-4xl">
-        <p className="section-label mb-4">Western Cape&apos;s Trusted Accounting Firm</p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-balance">
-          Sound Financial Advice for Your Success
-        </h1>
-        <p className="text-gray-300 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-          Corporate and personal business solutions backed by more than 30 years of expertise.
-          We are your dedicated business enabler in Fish Hoek and the Helderberg.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/contact"
-            className="bg-teal hover:bg-teal-dark text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px] flex items-center justify-center"
-          >
-            Contact Us
-          </Link>
-          <Link
-            href="/services"
-            className="border border-white/30 hover:border-white text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px] flex items-center justify-center"
-          >
-            Our Services
-          </Link>
-        </div>
+    <section className="relative bg-gradient-to-br from-navy via-navy to-[#1a3a4a] text-white py-24 md:py-32 px-6 overflow-hidden">
+      {/* Dot pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+        aria-hidden="true"
+      />
 
-        {/* Trust badges */}
-        <div className="flex flex-wrap gap-6 mt-14">
-          {['Trusted', '30+ Years', 'Personal Service'].map((badge) => (
-            <div key={badge} className="flex items-center gap-2 text-gray-300 text-sm">
-              <span className="w-2 h-2 rounded-full bg-teal flex-shrink-0" aria-hidden="true" />
-              {badge}
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left — copy */}
+          <div>
+            <p className="section-label mb-4">Western Cape&apos;s Trusted Accounting Firm</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+              Sound Financial{' '}
+              <span className="text-teal">Advice</span>{' '}
+              for Your Success
+            </h1>
+            <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
+              Corporate and personal business solutions backed by more than 30 years of expertise.
+              Your dedicated business enabler in Fish Hoek and the Helderberg.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Link
+                href="/contact"
+                className="bg-gradient-to-r from-teal to-teal-dark hover:from-teal-dark hover:to-teal text-white font-semibold px-8 rounded transition-all duration-200 min-h-[44px] flex items-center justify-center shadow-md hover:shadow-lg"
+              >
+                Contact Us →
+              </Link>
+              <Link
+                href="/services"
+                className="border border-white/30 hover:border-white text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px] flex items-center justify-center"
+              >
+                Our Services
+              </Link>
             </div>
-          ))}
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-6">
+              {[
+                { icon: '🛡️', label: 'Trusted' },
+                { icon: '📈', label: '30+ Years' },
+                { icon: '🤝', label: 'Personal Service' },
+              ].map((badge) => (
+                <div key={badge.label} className="flex items-center gap-2 text-gray-300 text-sm">
+                  <span aria-hidden="true">{badge.icon}</span>
+                  {badge.label}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — floating services card */}
+          <div className="hidden lg:flex justify-end">
+            <div className="relative w-full max-w-sm">
+              {/* Services card */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl">
+                <p className="text-xs font-semibold tracking-widest uppercase text-teal mb-4">What We Do</p>
+                <ul className="flex flex-col gap-4">
+                  {SERVICES_PREVIEW.map((svc) => (
+                    <li key={svc.category} className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-lg flex-shrink-0" aria-hidden="true">
+                        {svc.icon}
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400">{svc.category}</p>
+                        <p className="text-sm font-semibold text-white">{svc.label}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 30+ years badge */}
+              <div className="absolute -bottom-5 -left-5 bg-teal rounded-2xl px-5 py-4 shadow-xl">
+                <p className="text-2xl font-bold text-white leading-none">30+</p>
+                <p className="text-xs text-white/80 mt-0.5">Years Experience</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

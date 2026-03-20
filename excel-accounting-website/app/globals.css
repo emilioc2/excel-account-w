@@ -14,5 +14,17 @@ body {
   }
   .section-label {
     @apply text-xs font-semibold tracking-widest uppercase text-teal;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: theme('colors.teal.DEFAULT');
+    border-radius: 9999px;
+    flex-shrink: 0;
   }
 }
