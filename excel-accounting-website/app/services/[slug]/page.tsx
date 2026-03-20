@@ -1,8 +1,18 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { BarChart2, Receipt, FolderOpen, Briefcase, Scale, BookOpen, type LucideIcon } from 'lucide-react'
 import { getServices, getServiceBySlug, type Service } from '@/lib/sanity'
 import ServiceEnquiryForm from '@/components/ServiceEnquiryForm'
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  accounting: BarChart2,
+  tax: Receipt,
+  secretarial: FolderOpen,
+  payroll: Briefcase,
+  legal: Scale,
+  bookkeeping: BookOpen,
+}
 
 interface PageProps {
   params: { slug: string }
@@ -104,10 +114,12 @@ export default async function ServicePage({ params }: PageProps): Promise<React.
       />
       <main>
         {/* Hero */}
-        <section className="bg-navy text-white py-20 px-6">
+        <section className="bg-gradient-to-br from-navy via-navy to-[#1a3a4a] text-white py-20 px-6">
           <div className="container mx-auto max-w-3xl">
             <p className="section-label mb-4">Our Services</p>
-            <div className="text-5xl mb-4" aria-hidden="true">{service.icon}</div>
+            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
+              {(() => { const Icon = ICON_MAP[service.slug] ?? BarChart2; return <Icon className="w-7 h-7 text-teal" aria-hidden="true" /> })()}
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
             <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">{service.shortDescription}</p>
           </div>

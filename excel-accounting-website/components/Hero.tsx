@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { BarChart2, Scale, FolderOpen, Briefcase, ShieldCheck, TrendingUp, Users } from 'lucide-react'
 
 const SERVICES_PREVIEW = [
-  { icon: '📊', category: 'Accounting & Tax', label: 'Financial Statements & Returns' },
-  { icon: '⚖️', category: 'Legal Services', label: 'Wills, Trusts & Estates' },
-  { icon: '📁', category: 'Secretarial Services', label: 'Company Registrations' },
-  { icon: '💼', category: 'Payroll', label: 'PAYE & Salary Processing' },
+  { icon: BarChart2, category: 'Accounting & Tax', label: 'Financial Statements & Returns' },
+  { icon: Scale, category: 'Legal Services', label: 'Wills, Trusts & Estates' },
+  { icon: FolderOpen, category: 'Secretarial Services', label: 'Company Registrations' },
+  { icon: Briefcase, category: 'Payroll', label: 'PAYE & Salary Processing' },
 ]
 
 export default function Hero(): React.ReactElement {
@@ -50,12 +51,12 @@ export default function Hero(): React.ReactElement {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-6">
               {[
-                { icon: '🛡️', label: 'Trusted' },
-                { icon: '📈', label: '30+ Years' },
-                { icon: '🤝', label: 'Personal Service' },
+                { icon: ShieldCheck, label: 'Trusted' },
+                { icon: TrendingUp, label: '30+ Years' },
+                { icon: Users, label: 'Personal Service' },
               ].map((badge) => (
                 <div key={badge.label} className="flex items-center gap-2 text-gray-300 text-sm">
-                  <span aria-hidden="true">{badge.icon}</span>
+                  <badge.icon className="w-4 h-4 text-teal" aria-hidden="true" />
                   {badge.label}
                 </div>
               ))}
@@ -71,8 +72,8 @@ export default function Hero(): React.ReactElement {
                 <ul className="flex flex-col gap-4">
                   {SERVICES_PREVIEW.map((svc) => (
                     <li key={svc.category} className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-lg flex-shrink-0" aria-hidden="true">
-                        {svc.icon}
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <svc.icon className="w-5 h-5 text-teal" aria-hidden="true" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-400">{svc.category}</p>

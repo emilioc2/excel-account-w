@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { BarChart2, Receipt, FolderOpen, Briefcase, Scale, BookOpen } from 'lucide-react'
 import Hero from '@/components/Hero'
 import ServiceCard from '@/components/ServiceCard'
 import PillarCard from '@/components/PillarCard'
@@ -35,12 +36,12 @@ const PILLARS = [
 ]
 
 const FULL_SERVICES = [
-  { icon: '📊', heading: 'Accounting', description: 'Comprehensive accounting solutions tailored to your business size and industry.' },
-  { icon: '🧾', heading: 'Tax Services', description: 'Personal and corporate tax planning, submissions, and compliance.' },
-  { icon: '📁', heading: 'Secretarial Services', description: 'Company registrations, statutory compliance, and CIPC filings.' },
-  { icon: '💼', heading: 'Payroll', description: 'Accurate, timely payroll processing and PAYE submissions.' },
-  { icon: '⚖️', heading: 'Legal', description: 'Business legal support including contracts and regulatory guidance.' },
-  { icon: '📒', heading: 'Bookkeeping', description: 'Day-to-day bookkeeping to keep your finances organised and up to date.' },
+  { Icon: BarChart2, heading: 'Accounting', description: 'Comprehensive accounting solutions tailored to your business size and industry.' },
+  { Icon: Receipt, heading: 'Tax Services', description: 'Personal and corporate tax planning, submissions, and compliance.' },
+  { Icon: FolderOpen, heading: 'Secretarial Services', description: 'Company registrations, statutory compliance, and CIPC filings.' },
+  { Icon: Briefcase, heading: 'Payroll', description: 'Accurate, timely payroll processing and PAYE submissions.' },
+  { Icon: Scale, heading: 'Legal', description: 'Business legal support including contracts and regulatory guidance.' },
+  { Icon: BookOpen, heading: 'Bookkeeping', description: 'Day-to-day bookkeeping to keep your finances organised and up to date.' },
 ]
 
 const CLIENTS = [
@@ -81,7 +82,7 @@ export default async function HomePage(): Promise<React.ReactElement> {
   const services = rawServices.length > 0 ? rawServices : FULL_SERVICES.map((s, i) => ({
     title: s.heading,
     slug: ['accounting', 'tax', 'secretarial', 'payroll', 'legal', 'bookkeeping'][i] ?? s.heading.toLowerCase(),
-    icon: s.icon,
+    icon: '',
     shortDescription: s.description,
     offerings: [] as string[],
     seoTitle: '',
@@ -154,7 +155,9 @@ export default async function HomePage(): Promise<React.ReactElement> {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {FULL_SERVICES.map((svc) => (
               <div key={svc.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="text-3xl" aria-hidden="true">{svc.icon}</div>
+                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                  <svc.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+                </div>
                 <h3 className="font-semibold text-navy text-lg">{svc.heading}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{svc.description}</p>
               </div>
