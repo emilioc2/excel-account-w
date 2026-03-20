@@ -22,15 +22,15 @@ export const metadata: Metadata = {
 
 const PILLARS = [
   {
-    heading: 'We Are Professionals',
+    heading: 'Professionals',
     description: 'Our team holds the qualifications and experience to handle your financial affairs with precision and care.',
   },
   {
-    heading: 'We Are Trusted',
+    heading: 'Trusted',
     description: 'Over 30 years of client relationships built on transparency, integrity, and consistent results.',
   },
   {
-    heading: 'We Are Experts',
+    heading: 'Experts',
     description: 'From tax thresholds to corporate compliance, we stay current so you never have to worry.',
   },
 ]

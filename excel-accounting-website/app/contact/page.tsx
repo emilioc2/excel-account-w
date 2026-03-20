@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Phone, Mail, Clock, MapPin } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
@@ -14,9 +15,9 @@ export const metadata: Metadata = {
 }
 
 const INFO_CARDS = [
-  { heading: 'Call Us', detail: '021-782 8927', href: 'tel:0217828927' },
-  { heading: 'Email Us', detail: 'info@excelaccounting.co.za', href: 'mailto:info@excelaccounting.co.za' },
-  { heading: 'Office Hours', detail: 'Mon\u2013Thu 07:30\u201316:00\nFri 07:30\u201313:30', href: null },
+  { heading: 'Call Us', detail: '021-782 8927', href: 'tel:0217828927', Icon: Phone },
+  { heading: 'Email Us', detail: 'info@excelaccounting.co.za', href: 'mailto:info@excelaccounting.co.za', Icon: Mail },
+  { heading: 'Office Hours', detail: 'Mon\u2013Thu 07:30\u201316:00\nFri 07:30\u201313:30', href: null, Icon: Clock },
 ]
 
 const OFFICES = [
@@ -43,7 +44,10 @@ export default function ContactPage(): React.ReactElement {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {INFO_CARDS.map((card) => (
-              <div key={card.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-2 text-center">
+              <div key={card.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-3 text-center">
+                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                  <card.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+                </div>
                 <h2 className="text-sm font-semibold tracking-widest uppercase text-teal">{card.heading}</h2>
                 {card.href ? (
                   <a
@@ -74,9 +78,14 @@ export default function ContactPage(): React.ReactElement {
             <h2 className="text-2xl font-bold text-navy mb-8">Our Offices</h2>
             <div className="space-y-6">
               {OFFICES.map((office) => (
-                <div key={office.name} className="bg-gray-50 rounded-xl border border-gray-100 p-6">
-                  <h3 className="font-semibold text-navy mb-2">{office.name}</h3>
-                  <p className="text-gray-500 text-sm whitespace-pre-line leading-relaxed">{office.address}</p>
+                <div key={office.name} className="bg-gray-50 rounded-xl border border-gray-100 p-6 flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-5 h-5 text-teal" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-navy mb-1">{office.name}</h3>
+                    <p className="text-gray-500 text-sm whitespace-pre-line leading-relaxed">{office.address}</p>
+                  </div>
                 </div>
               ))}
             </div>
