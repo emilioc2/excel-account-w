@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        josefin: ['var(--font-josefin)', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         fadeSlideUp: {

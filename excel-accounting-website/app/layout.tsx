@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Josefin_Sans } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
 const inter = Inter({ subsets: ['latin'] })
+const josefin = Josefin_Sans({ subsets: ['latin'], variable: '--font-josefin' })
 
 export const metadata: Metadata = {
   title: 'Excel Accounting Services',
@@ -48,7 +49,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${inter.className} ${josefin.variable} flex flex-col min-h-screen`}>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

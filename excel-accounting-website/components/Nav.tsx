@@ -19,11 +19,15 @@ export default function Nav() {
     <header className="sticky top-0 z-50 bg-navy/95 backdrop-blur-md border-b border-white/10 shadow-md">
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg tracking-tight">
-          <span className="bg-teal text-white rounded w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0" aria-hidden="true">
-            E
+        <Link href="/" className="flex items-center gap-2.5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" className="flex-shrink-0">
+            <rect width="32" height="32" rx="6" fill="#1a2a3a"/>
+            <rect x="0" y="22" width="32" height="4" fill="#2a9688" opacity="0.8"/>
+            <text x="16" y="20" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fontWeight="700" letterSpacing="1" fill="#ffffff">EAS</text>
+          </svg>
+          <span className="font-josefin text-base font-bold tracking-widest uppercase text-white leading-none">
+            Excel Accounting Services
           </span>
-          <span>Excel Accounting Services</span>
         </Link>
 
         {/* Desktop links */}
