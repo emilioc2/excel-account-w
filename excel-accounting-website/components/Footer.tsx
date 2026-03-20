@@ -7,10 +7,12 @@ export default function Footer() {
         {/* Brand */}
         <div className="md:col-span-1">
           <div className="flex items-center gap-2 mb-4">
-            <span className="bg-teal text-white rounded w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0" aria-hidden="true">
-              E
-            </span>
-            <span className="text-white font-bold">Excel Accounting Services</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" className="flex-shrink-0">
+              <rect width="32" height="32" rx="6" fill="#1a2a3a"/>
+              <rect x="0" y="22" width="32" height="4" fill="#2a9688" opacity="0.8"/>
+              <text x="16" y="20" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fontWeight="700" letterSpacing="1" fill="#ffffff">EAS</text>
+            </svg>
+            <span className="font-josefin text-base font-bold tracking-widest uppercase text-white leading-none">Excel Accounting Services</span>
           </div>
           <p className="text-sm leading-relaxed">
             Trusted financial advice and accounting services with more than 30 years of experience
