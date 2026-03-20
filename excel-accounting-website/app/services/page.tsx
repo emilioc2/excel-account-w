@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ServiceCard from '@/components/ServiceCard'
+import ScrollReveal from '@/components/ScrollReveal'
 import { getServices, type Service } from '@/lib/sanity'
 
 const FALLBACK_SERVICES: Service[] = [
@@ -44,14 +45,15 @@ export default async function ServicesPage(): Promise<React.ReactElement> {
       <section className="py-20 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <ServiceCard
-                key={service.slug}
-                title={service.title}
-                icon={service.icon}
-                shortDescription={service.shortDescription}
-                slug={service.slug}
-              />
+            {services.map((service, i) => (
+              <ScrollReveal key={service.slug} direction="left" delay={i * 80}>
+                <ServiceCard
+                  title={service.title}
+                  icon={service.icon}
+                  shortDescription={service.shortDescription}
+                  slug={service.slug}
+                />
+              </ScrollReveal>
             ))}
           </div>
         </div>

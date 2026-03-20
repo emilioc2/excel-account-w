@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Phone, Mail, Clock, MapPin } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
+import ScrollReveal from '@/components/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Excel Accounting Services',
@@ -43,23 +44,22 @@ export default function ContactPage(): React.ReactElement {
       <section className="py-16 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {INFO_CARDS.map((card) => (
-              <div key={card.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-3 text-center">
-                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
-                  <card.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+            {INFO_CARDS.map((card, i) => (
+              <ScrollReveal key={card.heading} direction="up" delay={i * 100}>
+                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-3 text-center">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                    <card.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+                  </div>
+                  <h2 className="text-sm font-semibold tracking-widest uppercase text-teal">{card.heading}</h2>
+                  {card.href ? (
+                    <a href={card.href} className="text-navy font-medium hover:text-teal transition-colors duration-200 min-h-[44px] flex items-center justify-center">
+                      {card.detail}
+                    </a>
+                  ) : (
+                    <p className="text-gray-500 whitespace-pre-line text-sm leading-relaxed">{card.detail}</p>
+                  )}
                 </div>
-                <h2 className="text-sm font-semibold tracking-widest uppercase text-teal">{card.heading}</h2>
-                {card.href ? (
-                  <a
-                    href={card.href}
-                    className="text-navy font-medium hover:text-teal transition-colors duration-200 min-h-[44px] flex items-center justify-center"
-                  >
-                    {card.detail}
-                  </a>
-                ) : (
-                  <p className="text-gray-500 whitespace-pre-line text-sm leading-relaxed">{card.detail}</p>
-                )}
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -68,28 +68,31 @@ export default function ContactPage(): React.ReactElement {
       {/* Form + Offices side by side on desktop */}
       <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-2xl font-bold text-navy mb-2">Send Us a Message</h2>
-            <p className="text-gray-500 mb-8 text-sm">We will get back to you as soon as possible.</p>
-            <ContactForm />
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-navy mb-8">Our Offices</h2>
-            <div className="space-y-6">
-              {OFFICES.map((office) => (
-                <div key={office.name} className="bg-gray-50 rounded-xl border border-gray-100 p-6 flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5 text-teal" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy mb-1">{office.name}</h3>
-                    <p className="text-gray-500 text-sm whitespace-pre-line leading-relaxed">{office.address}</p>
-                  </div>
-                </div>
-              ))}
+          <ScrollReveal direction="left">
+            <div>
+              <h2 className="text-2xl font-bold text-navy mb-2">Send Us a Message</h2>
+              <p className="text-gray-500 mb-8 text-sm">We will get back to you as soon as possible.</p>
+              <ContactForm />
             </div>
-          </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <div>
+              <h2 className="text-2xl font-bold text-navy mb-8">Our Offices</h2>
+              <div className="space-y-6">
+                {OFFICES.map((office) => (
+                  <div key={office.name} className="bg-gray-50 rounded-xl border border-gray-100 p-6 flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <MapPin className="w-5 h-5 text-teal" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-navy mb-1">{office.name}</h3>
+                      <p className="text-gray-500 text-sm whitespace-pre-line leading-relaxed">{office.address}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

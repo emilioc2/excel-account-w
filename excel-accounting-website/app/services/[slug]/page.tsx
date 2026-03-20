@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BarChart2, Receipt, FolderOpen, Briefcase, Scale, BookOpen, type LucideIcon } from 'lucide-react'
 import { getServices, getServiceBySlug, type Service } from '@/lib/sanity'
 import ServiceEnquiryForm from '@/components/ServiceEnquiryForm'
+import ScrollReveal from '@/components/ScrollReveal'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   accounting: BarChart2,
@@ -128,26 +129,28 @@ export default async function ServicePage({ params }: PageProps): Promise<React.
         {/* Offerings */}
         <section className="py-20 px-6 bg-gray-50">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl font-bold text-navy mb-8">What We Offer</h2>
-            <ul className="space-y-3">
-              {service.offerings.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-500">
-                  <span className="text-teal mt-0.5 flex-shrink-0 font-bold" aria-hidden="true">&#10003;</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <ScrollReveal direction="left">
+              <h2 className="text-2xl font-bold text-navy mb-8">What We Offer</h2>
+              <ul className="space-y-3">
+                {service.offerings.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-gray-500">
+                    <span className="text-teal mt-0.5 flex-shrink-0 font-bold" aria-hidden="true">&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Enquiry Form */}
         <section className="py-20 px-6 bg-white">
           <div className="container mx-auto max-w-lg">
-            <h2 className="text-2xl font-bold text-navy mb-2">Make an Enquiry</h2>
-            <p className="text-gray-500 mb-8">
-              Fill in the form below and we will get back to you shortly.
-            </p>
-            <ServiceEnquiryForm serviceName={service.title} />
+            <ScrollReveal direction="up">
+              <h2 className="text-2xl font-bold text-navy mb-2">Make an Enquiry</h2>
+              <p className="text-gray-500 mb-8">Fill in the form below and we will get back to you shortly.</p>
+              <ServiceEnquiryForm serviceName={service.title} />
+            </ScrollReveal>
           </div>
         </section>
 

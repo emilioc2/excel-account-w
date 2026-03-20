@@ -6,6 +6,7 @@ import ServiceCard from '@/components/ServiceCard'
 import PillarCard from '@/components/PillarCard'
 import Accordion from '@/components/Accordion'
 import ScrollRevealCTA from '@/components/ScrollRevealCTA'
+import ScrollReveal from '@/components/ScrollReveal'
 import { getServices, getFaqItems } from '@/lib/sanity'
 
 export const metadata: Metadata = {
@@ -100,16 +101,18 @@ export default async function HomePage(): Promise<React.ReactElement> {
       {/* Introduction */}
       <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-3xl text-center">
-          <p className="section-label mb-3">Who We Are</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-            Your Trusted Partner in the Western Cape
-          </h2>
-          <p className="text-gray-500 leading-relaxed text-lg">
-            Excel Accounting Services has been serving businesses and individuals from our offices
-            in <strong className="text-navy">Fish Hoek</strong> and the{' '}
-            <strong className="text-navy">Helderberg</strong> for over 30 years. We combine
-            professional expertise with personal service to help you grow with confidence.
-          </p>
+          <ScrollReveal direction="up">
+            <p className="section-label mb-3">Who We Are</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
+              Your Trusted Partner in the Western Cape
+            </h2>
+            <p className="text-gray-500 leading-relaxed text-lg">
+              Excel Accounting Services has been serving businesses and individuals from our offices
+              in <strong className="text-navy">Fish Hoek</strong> and the{' '}
+              <strong className="text-navy">Helderberg</strong> for over 30 years. We combine
+              professional expertise with personal service to help you grow with confidence.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -120,14 +123,15 @@ export default async function HomePage(): Promise<React.ReactElement> {
             <p className="section-label mb-3 text-center">What We Do</p>
             <h2 className="text-3xl font-bold text-navy mb-12 text-center">Our Core Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredServices.map((service) => (
-                <ServiceCard
-                  key={service.slug}
-                  title={service.title}
-                  icon={service.icon}
-                  shortDescription={service.shortDescription}
-                  slug={service.slug}
-                />
+              {featuredServices.map((service, i) => (
+                <ScrollReveal key={service.slug} direction="left" delay={i * 100}>
+                  <ServiceCard
+                    title={service.title}
+                    icon={service.icon}
+                    shortDescription={service.shortDescription}
+                    slug={service.slug}
+                  />
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -140,8 +144,10 @@ export default async function HomePage(): Promise<React.ReactElement> {
           <p className="section-label mb-3 text-center">Our Values</p>
           <h2 className="text-3xl font-bold text-navy mb-12 text-center">Why Choose Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-100 rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-gray-100 bg-white shadow-sm">
-            {PILLARS.map((pillar) => (
-              <PillarCard key={pillar.heading} heading={pillar.heading} description={pillar.description} />
+            {PILLARS.map((pillar, i) => (
+              <ScrollReveal key={pillar.heading} direction="right" delay={i * 120}>
+                <PillarCard heading={pillar.heading} description={pillar.description} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -153,14 +159,16 @@ export default async function HomePage(): Promise<React.ReactElement> {
           <p className="section-label mb-3 text-center">Everything We Offer</p>
           <h2 className="text-3xl font-bold text-navy mb-12 text-center">Our Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {FULL_SERVICES.map((svc) => (
-              <div key={svc.heading} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
-                  <svc.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+            {FULL_SERVICES.map((svc, i) => (
+              <ScrollReveal key={svc.heading} direction="left" delay={i * 80}>
+                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0">
+                    <svc.Icon className="w-5 h-5 text-teal" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-navy text-lg">{svc.heading}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{svc.description}</p>
                 </div>
-                <h3 className="font-semibold text-navy text-lg">{svc.heading}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{svc.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
           <div className="text-center">

@@ -19,7 +19,7 @@ export default function Hero(): React.ReactElement {
       />
       {/* Teal radial glow — top right */}
       <div
-        className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.12]"
+        className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, #2a9688 0%, transparent 70%)' }}
         aria-hidden="true"
       />
