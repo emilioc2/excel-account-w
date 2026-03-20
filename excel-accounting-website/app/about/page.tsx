@@ -30,12 +30,20 @@ const PILLARS = [
   },
 ]
 
+const STATS = [
+  { value: '30+', label: 'Years Experience' },
+  { value: '6', label: 'Core Services' },
+  { value: '2', label: 'Office Locations' },
+]
+
 export default function AboutPage(): React.ReactElement {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-navy text-white py-20 px-6">
-        <div className="container mx-auto max-w-3xl">
+      <section className="relative bg-gradient-to-br from-navy via-navy to-[#1a3a4a] text-white py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '28px 28px' }} aria-hidden="true" />
+        <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full opacity-[0.06]" style={{ background: 'radial-gradient(circle, #2a9688 0%, transparent 70%)' }} aria-hidden="true" />
+        <div className="container mx-auto max-w-3xl relative z-10">
           <p className="section-label mb-4">About Us</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Our Company</h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
@@ -45,17 +53,32 @@ export default function AboutPage(): React.ReactElement {
         </div>
       </section>
 
+      {/* Stat strip */}
+      <section className="bg-[#f8fafc] border-y border-gray-100 py-10 px-6">
+        <div className="container mx-auto max-w-3xl">
+          <div className="grid grid-cols-3 gap-6 text-center">
+            {STATS.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl md:text-4xl font-bold text-navy">{stat.value}</p>
+                <p className="text-teal text-sm font-medium mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pillars */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="container mx-auto max-w-5xl">
-          <p className="section-label mb-3">Our Foundation</p>
-          <h2 className="text-3xl font-bold text-navy mb-12">Built on Three Pillars</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-100 rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-gray-100 bg-white">
+          <ScrollReveal direction="up">
+            <p className="section-label mb-3">Our Foundation</p>
+            <h2 className="text-3xl font-bold text-navy mb-12">Built on Three Pillars</h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-100 rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-gray-100 bg-white shadow-sm">
             {PILLARS.map((pillar, i) => (
               <ScrollReveal key={pillar.heading} direction="left" delay={i * 120}>
                 <PillarCard heading={pillar.heading} description={pillar.description} />
               </ScrollReveal>
-            ))}
             ))}
           </div>
         </div>
@@ -77,13 +100,13 @@ export default function AboutPage(): React.ReactElement {
       </section>
 
       {/* CTAs */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="container mx-auto max-w-3xl">
           <ScrollReveal direction="up">
             <h2 className="text-2xl font-bold text-navy mb-4">Want to Know More?</h2>
             <p className="text-gray-500 mb-8">For more information feel free to contact us. We&apos;d love to hear from you.</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/services" className="inline-flex items-center justify-center bg-teal hover:bg-teal-dark text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px]">Our Services</Link>
+              <Link href="/services" className="inline-flex items-center justify-center bg-gradient-to-r from-teal to-teal-dark hover:from-teal-dark hover:to-teal text-white font-semibold px-8 rounded transition-all duration-200 min-h-[44px] shadow-md">Our Services</Link>
               <Link href="/contact" className="inline-flex items-center justify-center border border-navy text-navy hover:bg-navy hover:text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px]">Contact Us</Link>
             </div>
           </ScrollReveal>

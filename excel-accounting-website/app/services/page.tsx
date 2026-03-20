@@ -31,8 +31,10 @@ export default async function ServicesPage(): Promise<React.ReactElement> {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-navy text-white py-20 px-6">
-        <div className="container mx-auto max-w-3xl">
+      <section className="relative bg-gradient-to-br from-navy via-navy to-[#1a3a4a] text-white py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '28px 28px' }} aria-hidden="true" />
+        <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full opacity-[0.06]" style={{ background: 'radial-gradient(circle, #2a9688 0%, transparent 70%)' }} aria-hidden="true" />
+        <div className="container mx-auto max-w-3xl relative z-10">
           <p className="section-label mb-4">What We Offer</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">

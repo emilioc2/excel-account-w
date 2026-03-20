@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         navy: '#253347',
         teal: { DEFAULT: '#2a9688', dark: '#25857a' },
+        gold: { DEFAULT: '#E8A838', dark: '#C8901A' },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

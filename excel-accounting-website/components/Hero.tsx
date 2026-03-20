@@ -10,11 +10,11 @@ const SERVICES_PREVIEW: { icon: LucideIcon; category: string; label: string }[] 
 
 export default function Hero(): React.ReactElement {
   return (
-    <section className="relative bg-gradient-to-br from-[#f0f4f8] via-[#e8f0f7] to-[#f0f4f8] text-navy py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-navy via-navy to-[#1a3a4a] text-white py-24 md:py-32 px-6 overflow-hidden">
       {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
-        style={{ backgroundImage: 'radial-gradient(circle, #1e2a3a 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+        style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '28px 28px' }}
         aria-hidden="true"
       />
       {/* Teal radial glow — top right */}
@@ -29,16 +29,16 @@ export default function Hero(): React.ReactElement {
 
           {/* Left — copy */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-teal/10 text-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-teal" aria-hidden="true" />
               Western Cape&apos;s Trusted Accounting Firm
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance text-navy">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance text-white">
               Sound Financial{' '}
               <span className="text-teal">Advice</span>{' '}
               for Your Success
             </h1>
-            <p className="text-gray-600 text-lg max-w-xl mb-10 leading-relaxed">
+            <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
               Corporate and personal business solutions backed by more than 30 years of expertise.
               Your dedicated business enabler in Fish Hoek and the Helderberg.
             </p>
@@ -51,7 +51,7 @@ export default function Hero(): React.ReactElement {
               </Link>
               <Link
                 href="/services"
-                className="border border-navy/30 hover:border-navy text-navy font-semibold px-8 rounded transition-colors duration-200 min-h-[44px] flex items-center justify-center"
+                className="border border-white/30 hover:border-white text-white font-semibold px-8 rounded transition-colors duration-200 min-h-[44px] flex items-center justify-center"
               >
                 Our Services
               </Link>
@@ -64,7 +64,7 @@ export default function Hero(): React.ReactElement {
                 { icon: TrendingUp, label: '30+ Years' },
                 { icon: Users, label: 'Personal Service' },
               ].map((badge) => (
-                <div key={badge.label} className="flex items-center gap-2 text-gray-500 text-sm">
+                <div key={badge.label} className="flex items-center gap-2 text-gray-400 text-sm">
                   <badge.icon className="w-4 h-4 text-teal" aria-hidden="true" />
                   {badge.label}
                 </div>
